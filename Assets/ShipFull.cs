@@ -4,6 +4,13 @@ using UnityEngine;
 
 /// <summary>
 /// 自機のすべての処理を持ったクラス
+/// 持っている責任:
+///     - ステータスの管理
+///     - 位置の更新
+///     - 入力
+///     - 弾本体の管理
+///     - 発射物の管理
+///     - パーティクルの管理
 /// </summary>
 public class ShipFull : MonoBehaviour
 {
