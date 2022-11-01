@@ -5,5 +5,6 @@ using UnityEngine;
 
 public interface IProjectileLaunch
 {
+    bool IsFire { get; }
     Action OnFire { get; set; }
 }

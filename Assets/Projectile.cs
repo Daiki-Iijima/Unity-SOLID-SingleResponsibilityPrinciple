@@ -9,7 +9,6 @@ public class Projectile : MonoBehaviour
 
     void OnEnable()
     {
-        ////StartCoroutine(SelfDestruct());
         Destroy(gameObject, timeToSelfDestruct);
     }
 }

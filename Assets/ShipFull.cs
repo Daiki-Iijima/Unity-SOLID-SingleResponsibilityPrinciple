@@ -13,18 +13,12 @@ using UnityEngine;
 [RequireComponent(typeof(ShipInput))]
 public class ShipFull : MonoBehaviour
 {
-    //  船のスピード
-    [SerializeField] private float speed = 1f;
-    //  回転スピード
-    [SerializeField] private float turnSpeed = 30f;
     //  スラスターのパーティクル(自分に最初からついている)
     [SerializeField] private GameObject thrusterParticles;
     //  HPの最大値
     [SerializeField] private int maxHelth = 100;
     //  死んだときに表示するパーティクル
     [SerializeField] private GameObject deathParticleSystemPrefab;
-
-    [SerializeField] private ShipInput input;
 
     //  HP
     private int health;
@@ -35,14 +29,8 @@ public class ShipFull : MonoBehaviour
     }
 
     void Update() {
-        //  移動
-        transform.position += speed * Time.deltaTime * input.Vertical * transform.forward;
-
-        //  回転
-        transform.Rotate(input.Horizontal * Time.deltaTime * turnSpeed * Vector3.up);
-
         //  入力があれば、パーティクルを表示
-        thrusterParticles.SetActive(input.Vertical > 0);
+        //thrusterParticles.SetActive(input.Vertical > 0);
     }
 
 
