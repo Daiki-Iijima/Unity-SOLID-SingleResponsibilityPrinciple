@@ -218,7 +218,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 0.15
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -380,7 +380,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5.7
+      scalar: 2.04
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5073,6 +5073,9 @@ GameObject:
   - component: {fileID: 809090023}
   - component: {fileID: 809090022}
   - component: {fileID: 809090021}
+  - component: {fileID: 809090026}
+  - component: {fileID: 809090027}
+  - component: {fileID: 809090028}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -5093,13 +5096,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  projectile: {fileID: 2561144306667985682, guid: 7d5431a4d1daaa94e85a9317a942fe81, type: 3}
-  weaponMountPoint: {fileID: 208701854}
-  fireForce: 300
   turnSpeed: 50
   thrusterParticles: {fileID: 353500689}
   maxHelth: 100
   deathParticleSystemPrefab: {fileID: 9010094633784145098, guid: 89a0c1db0d3232a448b76e28e84b282e, type: 3}
+  input: {fileID: 809090026}
 --- !u!65 &809090022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5177,7 +5178,81 @@ Transform:
   m_Children:
   - {fileID: 208701854}
   - {fileID: 353500692}
+  - {fileID: 880783381}
   m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &809090026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809090020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6096ce88088f446be5e6af3afe9ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &809090027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809090020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1423a8949928cfd4591dabf4642928f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1253480026806412108, guid: 7d5431a4d1daaa94e85a9317a942fe81, type: 3}
+  weaponMountPoint: {fileID: 208701854}
+  fireForce: 300
+--- !u!114 &809090028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809090020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1423a8949928cfd4591dabf4642928f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1253480026806412108, guid: 7d5431a4d1daaa94e85a9317a942fe81, type: 3}
+  weaponMountPoint: {fileID: 880783381}
+  fireForce: 300
+--- !u!1 &880783380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880783381}
+  m_Layer: 0
+  m_Name: WeaponMoutPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &880783381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880783380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 809090025}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225

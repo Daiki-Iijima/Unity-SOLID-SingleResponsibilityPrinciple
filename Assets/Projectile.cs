@@ -12,9 +12,4 @@ public class Projectile : MonoBehaviour
         ////StartCoroutine(SelfDestruct());
         Destroy(gameObject, timeToSelfDestruct);
     }
-
-    IEnumerator SelfDestruct()
-    {
-        yield return new WaitForSeconds(timeToSelfDestruct);
-    }
 }

@@ -7,20 +7,14 @@ using UnityEngine;
 /// 持っている責任:
 ///     - ステータスの管理
 ///     - 位置の更新
-///     - 弾本体の管理
-///     - 発射物の管理
+///     - 発射処理
 ///     - パーティクルの管理
 /// </summary>
+[RequireComponent(typeof(ShipInput))]
 public class ShipFull : MonoBehaviour
 {
     //  船のスピード
     [SerializeField] private float speed = 1f;
-    //  発射物
-    [SerializeField] private GameObject projectilePrefab;
-    //  弾を発射する位置
-    [SerializeField] private Transform weaponMountPoint;
-    //  発射する強さ
-    [SerializeField] private float fireForce = 300f;
     //  回転スピード
     [SerializeField] private float turnSpeed = 30f;
     //  スラスターのパーティクル(自分に最初からついている)
@@ -38,9 +32,6 @@ public class ShipFull : MonoBehaviour
     private void Awake() {
         //  開始時は最大体力で開始
         health = maxHelth;
-
-        //  発射イベントを紐づけ
-        input.OnFire = FireWeapon;
     }
 
     void Update() {
@@ -54,14 +45,6 @@ public class ShipFull : MonoBehaviour
         thrusterParticles.SetActive(input.Vertical > 0);
     }
 
-    /// <summary>
-    /// 球を生成して動かす
-    /// </summary>
-    private void FireWeapon() {
-        GameObject spawnedProjectile = Instantiate(projectilePrefab, weaponMountPoint.position, weaponMountPoint.rotation);
-        Rigidbody projectileRb = spawnedProjectile.GetComponent<Rigidbody>();
-        projectileRb.AddForce(spawnedProjectile.transform.forward * fireForce);
-    }
 
     private void OnCollisionEnter(Collision collision) {
         //  あたったオブジェクトが弾かチェック

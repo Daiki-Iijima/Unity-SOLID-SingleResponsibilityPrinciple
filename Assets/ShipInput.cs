@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// 自機への入力
 /// </summary>
-public class ShipInput : MonoBehaviour
+public class ShipInput : MonoBehaviour, IProjectileLaunch
 {
     //  横の入力量
     public float Horizontal { get; private set; }
@@ -18,7 +18,7 @@ public class ShipInput : MonoBehaviour
     /// <summary>
     /// 発射イベント
     /// </summary>
-    public Action OnFire;
+    public Action OnFire { get; set; }
 
     void Update()
     {
