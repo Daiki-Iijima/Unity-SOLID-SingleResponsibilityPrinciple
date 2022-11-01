@@ -7,7 +7,6 @@ using UnityEngine;
 /// 持っている責任:
 ///     - ステータスの管理
 ///     - 位置の更新
-///     - 入力
 ///     - 弾本体の管理
 ///     - 発射物の管理
 ///     - パーティクルの管理
@@ -31,31 +30,28 @@ public class ShipFull : MonoBehaviour
     //  死んだときに表示するパーティクル
     [SerializeField] private GameObject deathParticleSystemPrefab;
 
+    [SerializeField] private ShipInput input;
+
     //  HP
     private int health;
 
     private void Awake() {
         //  開始時は最大体力で開始
         health = maxHelth;
+
+        //  発射イベントを紐づけ
+        input.OnFire = FireWeapon;
     }
 
     void Update() {
-
-        //  入力処理
-        if (Input.GetButtonDown("Fire1")) {
-            FireWeapon();
-        }
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
-
         //  移動
-        transform.position += speed * Time.deltaTime * vertical * transform.forward;
+        transform.position += speed * Time.deltaTime * input.Vertical * transform.forward;
 
         //  回転
-        transform.Rotate(horizontal * Time.deltaTime * turnSpeed * Vector3.up);
+        transform.Rotate(input.Horizontal * Time.deltaTime * turnSpeed * Vector3.up);
 
         //  入力があれば、パーティクルを表示
-        thrusterParticles.SetActive(vertical > 0);
+        thrusterParticles.SetActive(input.Vertical > 0);
     }
 
     /// <summary>
