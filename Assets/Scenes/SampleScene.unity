@@ -5072,10 +5072,11 @@ GameObject:
   - component: {fileID: 809090024}
   - component: {fileID: 809090023}
   - component: {fileID: 809090022}
-  - component: {fileID: 809090021}
   - component: {fileID: 809090026}
   - component: {fileID: 809090028}
   - component: {fileID: 809090027}
+  - component: {fileID: 809090029}
+  - component: {fileID: 809090030}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -5083,21 +5084,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &809090021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809090020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4433b59051ebc44930f43192039db3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrusterParticles: {fileID: 353500689}
-  maxHelth: 100
-  deathParticleSystemPrefab: {fileID: 9010094633784145098, guid: 89a0c1db0d3232a448b76e28e84b282e, type: 3}
 --- !u!65 &809090022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5219,6 +5205,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   turnSpeed: 50
+--- !u!114 &809090029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809090020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66331a9937ad1d64e8eaec9d1dad92e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHelth: 100
+--- !u!114 &809090030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809090020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d44298af1720744bfa26e267c58628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrusterParticles: {fileID: 353500689}
+  deathParticleSystemPrefab: {fileID: 9010094633784145098, guid: 89a0c1db0d3232a448b76e28e84b282e, type: 3}
+  timeToDeathParticleDestruct: 2
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

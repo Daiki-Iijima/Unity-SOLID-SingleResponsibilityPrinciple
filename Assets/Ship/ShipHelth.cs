@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipHelth : MonoBehaviour
+public class ShipHelth : MonoBehaviour, IHealth
 {
     //  HPの最大値
     [SerializeField] private int maxHelth = 100;
@@ -12,7 +12,7 @@ public class ShipHelth : MonoBehaviour
     private int health;
 
     //  死亡イベント
-    public Action OnDie;
+    public Action OnDie { get; set; }
 
     private void Awake() {
         //  開始時は最大体力で開始
