@@ -38,7 +38,5 @@ public class Engine : MonoBehaviour
         Vector3 turnValue =  Vector3.up* Time.deltaTime * turnSpeed;
         //  “ü—Í‚ÌŒW”‚ğ‚©‚¯‚ÄˆÚ“®‚³‚¹‚é
         this.transform.Rotate(turnValue * inputHorizon);
-
-
     }
 }

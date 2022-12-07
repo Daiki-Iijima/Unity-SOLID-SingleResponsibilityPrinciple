@@ -20,11 +20,12 @@ public class ProjectileLauncher : MonoBehaviour
         //  同じオブジェクトにIProjectileLaunchを実装したクラスがついている必要がある
         IProjectileLaunch launch = GetComponent<IProjectileLaunch>();
         if(launch == null) {
-            Debug.LogWarning("発火イベントを取得できませんでした");
+            Debug.LogWarning("発射する対象が見つかりませんでした。");
             return;
         }
 
-        launch.OnFire += HandleFire;
+        //  発射イベントの購読
+        launch.OnFire = HandleFire;
     }
 
     /// <summary>
